@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block title %}Задача{% endblock %}
+
+{% block content %}
+  <h2>{{ task.title }}</h2>
+  <video src="{{ url_for('static', filename=video) }}"
+         controls class="w-100 mb-4"></video>
+
+  <form method="post">
+    {% if task.type == 'mcq' %}
+      <p>{{ task.payload.question }}</p>
+      {% for choice in task.payload.choices %}
+        <div class="form-check">
+          <input class="form-check-input" type="radio"
+                 name="choice" id="c{{ loop.index0 }}" value="{{ loop.index0 }}" required>
+          <label class="form-check-label" for="c{{ loop.index0 }}">{{ choice }}</label>
+        </div>
+      {% endfor %}
+
+    {% elif task.type == 'ordering' %}
+      <p>Расставьте блоки в правильном порядке:</p>
+      <ul id="sortable" class="list-group mb-3">
+        {% for block in task.payload.blocks %}
+          <li class="list-group-item" data-text="{{ block }}">{{ block }}</li>
+        {% endfor %}
+      </ul>
+      <input type="hidden" name="block" id="block-order">
+
+    {% elif task.type == 'fill' %}
+      <p>Допишите код:</p>
+      <pre>{{ task.payload.template | replace('___','____') }}</pre>
+      <input class="form-control" name="fillin" required>
+    {% endif %}
+
+    <button class="btn btn-primary mt-3">Проверить</button>
+  </form>
+{% endblock %}
+
+{% block extra_scripts %}
+  {% if task.type == 'ordering' %}
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+    <script>
+      const sortable = new Sortable(document.getElementById('sortable'));
+      document.querySelector('form').onsubmit = () => {
+        const order = [...document.querySelectorAll('#sortable li')]
+                      .map(li => li.dataset.text);
+        document.getElementById('block-order').value = order.join('||');
+      };
+    </script>
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h2>{{ task.title }}</h2>
+  <video src="{{ url_for('static', filename='videos/'+ task.level.video_filename) }}" controls></video>
+  <p>Соберите блоки в правильном порядке:</p>
+  <form method="post">
+    <ul id="sortable">
+      {% for block in task.payload.blocks %}
+        <li class="list-group-item" data-text="{{ block }}">{{ block }}</li>
+      {% endfor %}
+    </ul>
+    <input type="hidden" name="block" id="block-order">
+    <button class="btn btn-primary mt-3">Проверить</button>
+  </form>
+
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+  <script>
+    const sortable = new Sortable(document.getElementById('sortable'));
+    document.querySelector('form').addEventListener('submit', e => {
+      const order = [...document.querySelectorAll('#sortable li')]
+                    .map(li => li.dataset.text);
+      document.getElementById('block-order').value = order.join('||');
+    });
+  </script>
+{% endblock %}

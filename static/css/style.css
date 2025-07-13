@@ -1,0 +1,69 @@
+/* static/css/style.css */
+
+/* 1. Немного изменим палитру */
+:root {
+  --bs-primary:    #5c6ac4;  /* новый синий */
+  --bs-secondary:  #f0ad4e;  /* новый жёлтый */
+  --bs-body-color: #333;     /* чуть темнее текст */
+  --bs-body-bg:    #f8f9fa;  /* светлый фон */
+}
+
+/* 2. Кастомные шрифты */
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+/* 3. Добавим тень и скругление карточкам */
+.card {
+  border-radius: 1rem;
+  box-shadow: 0 0.5rem 1rem rgba(0,0,0,.1);
+}
+
+/* 4. Подчеркнём заголовок главной */
+h1, h2 {
+  position: relative;
+  padding-bottom: .5rem;
+}
+h1::after, h2::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 3rem; height: 3px;
+  background: var(--bs-primary);
+}
+
+/* 5. Немного отступов вокруг видео */
+video {
+  border: 2px solid var(--bs-secondary);
+  border-radius: .5rem;
+}
+
+:root {
+  /* Фоновый светло-голубой (тёплый пастельно-нежный) */
+  --pastel-bg:       #F0F8FF;
+  /* Пастельный абрикосовый для хедера */
+  --pastel-header:   #FFDAB9;
+  /* Пастельный лавандовый для карточек, если понадобится */
+  --pastel-card:     #E6E6FA;
+}
+
+body {
+  background-color: var(--pastel-bg);
+}
+
+/* ----------------------------------------------------
+   Шапка (navbar)
+---------------------------------------------------- */
+.navbar {
+  background-color: var(--pastel-header) !important;
+}
+
+/* Если хотите, чтобы карточки уровней тоже были пастельными */
+.card {
+  background-color: var(--pastel-card);
+}
+
+/* При необходимости скорректируйте цвет текста в хедере */
+.navbar .nav-link,
+.navbar-brand {
+  color: #333 !important;

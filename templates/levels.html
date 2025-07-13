@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Уровни{% endblock %}
+{% block content %}
+  <h2 class="mb-4">Выбор уровня</h2>
+  <div class="row">
+    {% for lvl in info %}
+      <div class="col-md-4 mb-3">
+        <div class="card h-100 {% if not lvl.unlocked %}border-secondary{% endif %}">
+          <div class="card-body">
+            <h5 class="card-title">{{ lvl.title }}</h5>
+            <p>Пройдено {{ lvl.done }} из {{ lvl.total }} задач.</p>
+            {% if lvl.unlocked %}
+              <a href="{{ url_for('task', level=lvl.id, idx=0) }}" class="btn btn-primary">Начать</a>
+            {% else %}
+              <button class="btn btn-secondary" disabled>Закрыто</button>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}

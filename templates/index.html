@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}Главная{% endblock %}
+{% block content %}
+  <div class="text-center py-5">
+    <h1>JS Lab</h1>
+    <p class="lead">Обучение JavaScript в три уровня. Начните прямо сейчас!</p>
+    {% if current_user.is_authenticated %}
+      <a href="{{ url_for('levels') }}" class="btn btn-primary btn-lg">Перейти к уровням</a>
+    {% else %}
+      <a href="{{ url_for('register') }}" class="btn btn-success btn-lg me-2">Регистрация</a>
+      <a href="{{ url_for('login') }}" class="btn btn-outline-secondary btn-lg">Войти</a>
+    {% endif %}
+  </div>
+{% endblock %}

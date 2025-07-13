@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h2>{{ task.title }}</h2>
+  <video src="{{ url_for('static', filename='videos/'+ task.level.video_filename) }}" controls></video>
+  <form method="post">
+    <p>{{ task.payload.question }}</p>
+    {% for i, ch in enumerate(task.payload.choices) %}
+      <div>
+        <input type="radio" name="choice" id="c{{i}}" value="{{i}}" required>
+        <label for="c{{i}}">{{ ch }}</label>
+      </div>
+    {% endfor %}
+    <button class="btn btn-primary mt-3">Проверить</button>
+  </form>
+{% endblock %}

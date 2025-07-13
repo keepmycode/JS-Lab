@@ -1,0 +1,176 @@
+{
+  "1": {
+    "title": "Простой",
+    "tasks": [
+      {
+        "title": "Что выведет console.log(1 + 2 * 3)?",
+        "type": "mcq",
+        "video": "videos/lvl1_intro.mp4",
+        "payload": {
+          "question": "Что выведет console.log(1 + 2 * 3)?",
+          "choices": ["7", "9", "5", "8"],
+          "correct": 0
+        }
+      },
+      {
+        "title": "Какой тип у null?",
+        "type": "mcq",
+        "video": "videos/lvl1_intro.mp4",
+        "payload": {
+          "question": "Какой тип выдаёт typeof null?",
+          "choices": ["\"null\"", "\"object\"", "\"undefined\"", "\"number\""],
+          "correct": 1
+        }
+      },
+      {
+        "title": "Что выведет \"5\" + 1?",
+        "type": "mcq",
+        "video": "",
+        "payload": {
+          "question": "Что выведет console.log(\"5\" + 1)?",
+          "choices": ["6", "\"51\"", "\"6\"", "\"5 1\""],
+          "correct": 1
+        }
+      },
+      {
+        "title": "Что выведет true && false?",
+        "type": "mcq",
+        "video": "",
+        "payload": {
+          "question": "Что выведет console.log(true && false)?",
+          "choices": ["true", "false", "undefined", "null"],
+          "correct": 1
+        }
+      },
+      {
+        "title": "Что выведет [] + []?",
+        "type": "mcq",
+        "video": "",
+        "payload": {
+          "question": "Что выведет console.log([] + [])?",
+          "choices": ["\"\"", "\"[]\"", "undefined", "NaN"],
+          "correct": 0
+        }
+      }
+    ]
+  },
+  "2": {
+    "title": "Средний",
+    "tasks": [
+      {
+        "title": "Упорядочьте объявление и вывод переменной",
+        "type": "ordering",
+        "video": "",
+        "payload": {
+          "blocks": ["let x = 5;", "x = x + 1;", "console.log(x);"],
+          "correct_order": [0,1,2]
+        }
+      },
+      {
+        "title": "Простой цикл for",
+        "type": "ordering",
+        "video": "",
+        "payload": {
+          "blocks": [
+            "for (let i = 0; i < 3; i++) {",
+            "  console.log(i);",
+            "}"
+          ],
+          "correct_order": [0,1,2]
+        }
+      },
+      {
+        "title": "Условный оператор",
+        "type": "ordering",
+        "video": "",
+        "payload": {
+          "blocks": [
+            "if (a > 0) {",
+            "  console.log('положительное');",
+            "} else {",
+            "  console.log('не положительное');",
+            "}"
+          ],
+          "correct_order": [0,1,2,3,4]
+        }
+      },
+      {
+        "title": "Функция sum",
+        "type": "ordering",
+        "video": "",
+        "payload": {
+          "blocks": [
+            "function sum(a, b) {",
+            "  return a + b;",
+            "}"
+          ],
+          "correct_order": [0,1,2]
+        }
+      },
+      {
+        "title": "Добавление в массив",
+        "type": "ordering",
+        "video": "",
+        "payload": {
+          "blocks": [
+            "const arr = [];",
+            "arr.push(1);",
+            "arr.push(2);",
+            "console.log(arr);"
+          ],
+          "correct_order": [0,1,2,3]
+        }
+      }
+    ]
+  },
+  "3": {
+    "title": "Сложный",
+    "tasks": [
+      {
+        "title": "Заполните условие цикла",
+        "type": "fill",
+        "video": "",
+        "payload": {
+          "template": "for (let i = 0; i < ___; i++) console.log(i);",
+          "answer_regex": "\\d+"
+        }
+      },
+      {
+        "title": "Доступ к длине строки",
+        "type": "fill",
+        "video": "",
+        "payload": {
+          "template": "const str = 'hello'; console.log(str.___);",
+          "answer_regex": "length"
+        }
+      },
+      {
+        "title": "Использование map",
+        "type": "fill",
+        "video": "",
+        "payload": {
+          "template": "const arr = [1, 2, 3]; const result = arr.___(n => n * 2);",
+          "answer_regex": "map"
+        }
+      },
+      {
+        "title": "Оператор степени",
+        "type": "fill",
+        "video": "",
+        "payload": {
+          "template": "console.log(Math.___(2, 3));",
+          "answer_regex": "pow"
+        }
+      },
+      {
+        "title": "Доступ к свойству объекта",
+        "type": "fill",
+        "video": "",
+        "payload": {
+          "template": "const obj = {a: 1}; console.log(obj.___);",
+          "answer_regex": "a"
+        }
+      }
+    ]
+  }
+}
